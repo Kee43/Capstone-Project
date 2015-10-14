@@ -14,11 +14,11 @@ with your friends and family!
 
 
 # Features
-^ Browse through a list of over 1000 cocktails, 80+ have custom images
-^ Sort/Search through the list based on alcoholic/non-alcoholic drinks
-^ Save favourite cocktails
-^ Discover what you can make from your own ingredients
-^ App will pick a random cocktail for the user
+* Browse through a list of over 1000 cocktails, 80+ have custom images
+* Sort/Search through the list based on alcoholic/non-alcoholic drinks
+* Save favourite cocktails
+* Discover what you can make from your own ingredients
+* App will pick a random cocktail for the user
 
 # Screenshots
 ![alt tag](https://raw.githubusercontent.com/Kee43/Capstone-Project/master/Screenshots/Cocktail_Companion_Screen1.png)
