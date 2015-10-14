@@ -1,0 +1,33 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="@dimen/cocktails_item_layout_height"
+    android:orientation="horizontal"
+    android:padding="@dimen/cocktails_item_padding" >
+
+    <TextView
+        android:id="@+id/builderCocktailName"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:textSize="@dimen/cocktails_item_text_size"
+        android:text="@string/cocktail_name"
+        android:layout_weight="2"
+        android:gravity="left|center"
+        android:layout_marginLeft="@dimen/cocktails_item_left_margin"
+        android:layout_marginTop="@dimen/cocktails_item_margin"
+        android:layout_marginRight="@dimen/cocktails_item_margin"
+        android:layout_marginBottom="@dimen/cocktails_item_margin">
+    </TextView>
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:text="@string/ingredients_list"
+        android:id="@+id/builderCocktailIngredients"
+        android:layout_weight="1"
+        android:gravity="left|center"
+        android:layout_marginLeft="@dimen/cocktails_item_ingredients_margin_left"
+        android:layout_marginTop="@dimen/cocktails_item_ingredients_margin"
+        android:layout_marginRight="@dimen/cocktails_item_ingredients_margin"
+        android:layout_marginBottom="@dimen/cocktails_item_ingredients_margin" />
+
+</LinearLayout>

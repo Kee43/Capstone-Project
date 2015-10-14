@@ -1,0 +1,52 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".SplashActivity"
+    android:background="@color/light_blue">
+
+    <ImageView
+        android:layout_width="@dimen/splash_image_width"
+        android:layout_height="@dimen/splash_image_height"
+        android:id="@+id/imageView"
+        android:src="@drawable/splash_icon"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/splash_image_margin_top" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        android:id="@+id/tvAppName"
+        android:layout_below="@+id/imageView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/splash_title_margin"
+        android:layout_marginLeft="@dimen/splash_title_margin"
+        android:layout_marginRight="@dimen/splash_title_margin"
+        android:textSize="@dimen/splash_title_size"
+        android:textColor="@android:color/white"
+        android:fontFamily="sans" />
+
+    <com.github.rahatarmanahmed.cpv.CircularProgressView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/pvLoadCocktails"
+        android:layout_width="@dimen/splash_loading_width"
+        android:layout_height="@dimen/splash_loading_height"
+        app:cpv_animAutostart="false"
+        app:cpv_indeterminate="true"
+        android:layout_below="@+id/tvAppName"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/splash_loading_margin_top" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/perform_setup_label"
+        android:id="@+id/tvSetupLabel"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/splash_loading_label"
+        android:layout_below="@+id/pvLoadCocktails"
+        android:layout_centerHorizontal="true" />
+</RelativeLayout>

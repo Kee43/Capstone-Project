@@ -1,0 +1,52 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    tools:context="com.kieranflay.cocktailcompanion.about.AboutActivityFragment">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:gravity="center_horizontal">
+
+        <TextView android:text="@string/about_app" android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:layout_centerInParent="true"
+            android:textStyle="bold"
+            android:textSize="@dimen/about_title_textsize"
+            android:layout_marginTop="@dimen/about_title_margin_top" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/built_by"
+            android:id="@+id/textView2"
+            android:layout_marginTop="@dimen/about_content_margin"
+            android:textSize="@dimen/about_content_textsize" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/database_provider"
+            android:id="@+id/textView"
+            android:layout_marginTop="@dimen/about_content_margin"
+            android:textSize="@dimen/about_content_textsize" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/logo_credit"
+            android:id="@+id/textView3"
+            android:textSize="@dimen/about_content_textsize"
+            android:layout_marginTop="@dimen/about_content_margin" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/images_credit"
+            android:id="@+id/textView4"
+            android:textSize="@dimen/about_content_textsize"
+            android:layout_marginTop="@dimen/about_content_margin" />
+    </LinearLayout>
+</RelativeLayout>

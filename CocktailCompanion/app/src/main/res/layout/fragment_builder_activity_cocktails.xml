@@ -1,0 +1,58 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.kieranflay.cocktailcompanion.builder.BuilderActivityCocktailsFragment"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/builder_cocktails_header_height"
+        android:background="@color/grey_header">
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:text="@string/name"
+            android:id="@+id/tvTitle1"
+            android:layout_weight="2"
+            android:background="@color/grey_header"
+            android:gravity="left|center"
+            android:textIsSelectable="false"
+            android:textSize="@dimen/builder_cocktails_header_text"
+            android:layout_marginLeft="@dimen/builder_cocktails_header_padding_left"
+            android:layout_marginTop="@dimen/builder_cocktails_header_padding"
+            android:layout_marginRight="@dimen/builder_cocktails_header_padding"
+            android:layout_marginBottom="@dimen/builder_cocktails_header_padding" />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:text="@string/ingredients_owned"
+            android:id="@+id/tvTitle2"
+            android:layout_weight="1"
+            android:background="@color/grey_header"
+            android:textSize="@dimen/builder_cocktails_header_text"
+            android:gravity="left|center"
+            android:layout_marginLeft="@dimen/builder_cocktails_header_padding_left"
+            android:layout_marginTop="@dimen/builder_cocktails_header_padding_small"
+            android:layout_marginRight="@dimen/builder_cocktails_header_padding_small"
+            android:layout_marginBottom="@dimen/builder_cocktails_header_padding_small" />
+
+    </LinearLayout>
+
+    <ListView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/lvBuilderCocktails" />
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:text="@string/no_ingredients_added"
+        android:id="@+id/tvBuilderNoDataView"
+        android:gravity="center"
+        android:layout_gravity="center_horizontal"
+        android:textSize="@dimen/builder_cocktails_text_size" />
+
+</LinearLayout>

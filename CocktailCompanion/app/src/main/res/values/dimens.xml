@@ -1,0 +1,157 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <!-- Per the design guidelines, navigation drawers should be between 240dp and 320dp:
+         https://developer.android.com/design/patterns/navigation-drawer.html -->
+    <dimen name="navigation_drawer_width">240dp</dimen>
+
+    <!-- Splash Screen -->
+    <dimen name="splash_image_width">300dp</dimen>
+    <dimen name="splash_image_height">300dp</dimen>
+    <dimen name="splash_image_margin_top">10dp</dimen>
+    <dimen name="splash_title_margin">5dp</dimen>
+    <dimen name="splash_title_size">35sp</dimen>
+    <dimen name="splash_loading_label">20sp</dimen>
+    <dimen name="splash_loading_width">60dp</dimen>
+    <dimen name="splash_loading_height">60dp</dimen>
+    <dimen name="splash_loading_margin_top">30dp</dimen>
+
+    <!-- Cocktails (builder) list view item -->
+    <dimen name="cocktails_item_layout_height">90dp</dimen>
+    <dimen name="cocktails_item_padding">3dp</dimen>
+    <dimen name="cocktails_item_text_size">15sp</dimen>
+    <dimen name="cocktails_item_left_margin">10dp</dimen>
+    <dimen name="cocktails_item_margin">20dp</dimen>
+    <dimen name="cocktails_item_ingredients_margin_left">20dp</dimen>
+    <dimen name="cocktails_item_ingredients_margin">5dp</dimen>
+
+    <!-- About application fragment -->
+    <dimen name="about_title_textsize">25sp</dimen>
+    <dimen name="about_title_margin_top">30dp</dimen>
+    <dimen name="about_content_margin">15dp</dimen>
+    <dimen name="about_content_textsize">15sp</dimen>
+
+    <!-- Fragment builder -->
+    <dimen name="tabs_elevation">2dp</dimen>
+
+    <!-- Fragment builder (cocktails) -->
+    <dimen name="builder_cocktails_header_height">50dp</dimen>
+    <dimen name="builder_cocktails_header_text">15sp</dimen>
+    <dimen name="builder_cocktails_header_padding_left">20dp</dimen>
+    <dimen name="builder_cocktails_header_padding">10dp</dimen>
+    <dimen name="builder_cocktails_header_padding_small">5dp</dimen>
+    <dimen name="builder_cocktails_text_size">20sp</dimen>
+
+    <!-- Fragment builder (ingredients) -->
+    <dimen name="builder_ingredients_label_textsize">20sp</dimen>
+    <dimen name="builder_ingredients_top_margin">15dp</dimen>
+    <dimen name="builder_ingredients_left_margin">20dp</dimen>
+    <dimen name="builder_ingredients_bottom_margin">5dp</dimen>
+    <dimen name="builder_ingredients_no_data_text_size">20sp</dimen>
+
+    <!-- Fragment detail -->
+    <dimen name="detail_backdrop_height">256dp</dimen>
+    <dimen name="detail_toolbar_start">48dp</dimen>
+    <dimen name="detail_toolbar_end">64dp</dimen>
+    <dimen name="detail_layout_margin_top">24dp</dimen>
+    <dimen name="cardview_margin">15dp</dimen>
+    <dimen name="detail_metabar_vert_padding">16dp</dimen>
+    <dimen name="detail_metabar_title_bottom_padding">4dp</dimen>
+    <dimen name="detail_layout_marigin_left">10dp</dimen>
+    <dimen name="detail_byline_text_size">20sp</dimen>
+    <dimen name="detail_cocktail_icon_width">50dp</dimen>
+    <dimen name="detail_cocktail_icon_height">50dp</dimen>
+    <dimen name="detail_cocktail_icon_padding">5dp</dimen>
+    <dimen name="detail_cocktail_icon_margin">15dp</dimen>
+    <dimen name="detail_meta_bar_height">110dp</dimen>
+    <dimen name="detail_method_label_text_size">20sp</dimen>
+    <dimen name="detail_method_label_left_margin">20dp</dimen>
+    <dimen name="detail_cocktail_method_margin_top">5dp</dimen>
+    <dimen name="detail_cocktail_method_text_size">20sp</dimen>
+    <dimen name="detail_cocktail_method_margin_right">50dp</dimen>
+    <dimen name="detail_ingredients_label_top_margin">25dp</dimen>
+    <dimen name="detail_ingredients_label_left_margin">20dp</dimen>
+    <dimen name="detail_ingredients_label_text_size">20sp</dimen>
+    <dimen name="detail_ingredients_top_margin">5dp</dimen>
+    <dimen name="detail_ingredients_bottom_margin">50dp</dimen>
+    <dimen name="detail_ingredients_width">100dp</dimen>
+    <dimen name="detail_ingredients_left_margin">25dp</dimen>
+    <dimen name="detail_dash_layout_width">5dp</dimen>
+    <dimen name="detail_dash_layout_margin">5dp</dimen>
+    <dimen name="detail_measure_layout_width">100dp</dimen>
+    <dimen name="detail_measure_layout_margin">40dp</dimen>
+    <dimen name="detail_ingredient_text_size">20sp</dimen>
+    <dimen name="detail_ingredient_margin_top">10dp</dimen>
+    <dimen name="detail_dash_text_size">20sp</dimen>
+    <dimen name="detail_dash_margin_top">10dp</dimen>
+    <dimen name="detail_measure_text_size">20sp</dimen>
+    <dimen name="detail_measure_margin_top">10dp</dimen>
+
+    <!-- Fragment main -->
+    <dimen name="main_header_layout_heght">50dp</dimen>
+    <dimen name="main_header_layout_margin_right">15dp</dimen>
+    <dimen name="main_header_text_size">15sp</dimen>
+    <dimen name="main_grid_horizontal_spacing">16dp</dimen>
+    <dimen name="main_grid_vertical_spacing">8dp</dimen>
+    <dimen name="main_grid_margin">8dp</dimen>
+
+    <!-- Fragment navigation drawer -->
+    <dimen name="nav_drawer_divider_height">1dp</dimen>
+
+    <!-- Fragment navigation drawer list item -->
+    <dimen name="nav_drawer_item_height">60dp</dimen>
+    <dimen name="nav_drawer_item_icon_width">30dp</dimen>
+    <dimen name="nav_drawer_item_icon_height">30dp</dimen>
+    <dimen name="nav_drawer_item_margin_left">15dp</dimen>
+    <dimen name="nav_drawer_item_text_size">18sp</dimen>
+    <dimen name="nav_drawer_item_text_margin_left">20dp</dimen>
+    <dimen name="nav_drawer_item_text_margin_top">5dp</dimen>
+    <dimen name="nav_drawer_item_text_margin_right">10dp</dimen>
+    <dimen name="nav_drawer_item_text_margin_bottom">5dp</dimen>
+
+    <!-- Fragment save -->
+    <dimen name="save_text_size">20sp</dimen>
+
+    <!-- Fragment surprise -->
+    <dimen name="surprise_button_width">250dp</dimen>
+    <dimen name="surprise_button_height">100dp</dimen>
+    <dimen name="surprise_button_text_size">28sp</dimen>
+    <dimen name="surprise_button_margin_top">160dp</dimen>
+
+    <!-- Grid view item -->
+    <dimen name="grid_view_item_layout_width">290dp</dimen>
+    <dimen name="grid_view_item_layout_height">290dp</dimen>
+    <dimen name="grid_view_item_header_height">50dp</dimen>
+    <dimen name="grid_view_item_header_text_size">18sp</dimen>
+    <dimen name="grid_view_item_header_margin_left">20dp</dimen>
+    <dimen name="grid_view_item_header_margin_top">10dp</dimen>
+    <dimen name="grid_view_item_header_margin_right">10dp</dimen>
+    <dimen name="grid_view_item_header_margin_bottom">10dp</dimen>
+
+    <!-- Ingredients list view item -->
+    <dimen name="ingredients_item_layout_height">50dp</dimen>
+    <dimen name="ingredients_item_layout_padding">3dp</dimen>
+    <dimen name="ingredients_item_text_width">290dp</dimen>
+    <dimen name="ingredients_item_text_size">15sp</dimen>
+    <dimen name="ingredients_item_text_margin_left">30dp</dimen>
+    <dimen name="ingredients_item_image_width">30dp</dimen>
+    <dimen name="ingredients_item_image_height">30dp</dimen>
+    <dimen name="ingredients_item_image_margin_right">10dp</dimen>
+
+    <!-- Save list view item -->
+    <dimen name="save_item_layout_height">120dp</dimen>
+    <dimen name="save_item_layout_padding">3dp</dimen>
+    <dimen name="save_item_icon_margin_left">20dp</dimen>
+    <dimen name="save_item_icon_margin_top">15dp</dimen>
+    <dimen name="save_item_icon_margin_right">15dp</dimen>
+    <dimen name="save_item_icon_margin_bottom">15dp</dimen>
+    <dimen name="save_item_text_size">15sp</dimen>
+    <dimen name="save_item_delete_height">50dp</dimen>
+    <dimen name="save_item_delete_margin_right">10dp</dimen>
+
+    <dimen name="detail_inner_horiz_margin">16dp</dimen>
+    <dimen name="fab_margin">24dp</dimen>
+    <dimen name="detail_title_text_size">32sp</dimen>
+</resources>

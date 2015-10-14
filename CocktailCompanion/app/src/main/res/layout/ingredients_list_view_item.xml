@@ -1,0 +1,27 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="@dimen/ingredients_item_layout_height"
+    android:orientation="horizontal"
+    android:padding="@dimen/ingredients_item_layout_padding" >
+
+    <TextView
+        android:id="@+id/saved_ingredient_name"
+        android:layout_width="@dimen/ingredients_item_text_width"
+        android:layout_height="fill_parent"
+        android:textSize="@dimen/ingredients_item_text_size"
+        android:layout_gravity="left"
+        android:gravity="left|center_vertical"
+        android:layout_marginLeft="@dimen/ingredients_item_text_margin_left"
+        android:layout_weight="1">
+    </TextView>
+
+    <ImageView
+        android:layout_width="@dimen/ingredients_item_image_width"
+        android:layout_height="@dimen/ingredients_item_image_height"
+        android:id="@+id/saved_ingredient_delete"
+        android:gravity="center"
+        android:src="@drawable/ic_clear_grey"
+        android:layout_marginRight="@dimen/ingredients_item_image_margin_right"
+        android:layout_gravity="center_vertical" />
+
+</LinearLayout>

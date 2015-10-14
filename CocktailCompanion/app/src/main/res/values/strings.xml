@@ -1,0 +1,93 @@
+<resources>
+    <string name="app_name">Cocktail Companion</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="no_internet">No internet connection detected. Please try again.</string>
+    <string name="no_internet_splash">No internet connection detected. Please close the application and try again.</string>
+
+    <string name="title_section1">Browse Cocktails</string>
+    <string name="title_section2">Saved Cocktails</string>
+    <string name="title_section3">Surprise Me!</string>
+    <string name="title_section4">Cocktail Builder</string>
+    <string name="title_section5">About App</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="title_activity_cocktail_detail">CocktailDetail</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_about">AboutActivity</string>
+    <string name="title_activity_surprise">SurpriseActivity</string>
+    <string name="title_activity_builder">BuilderActivity</string>
+
+    <string name="cocktail_name">Cocktail Name</string>
+    <string name="ingredients_list">Ingredients List</string>
+
+    <!-- About page -->
+    <string name="about_app">About Application</string>
+    <string name="built_by">Built by Kieran Flay</string>
+    <string name="database_provider">Database provided by www.thecocktaildb.com</string>
+    <string name="logo_credit">Logo Designed by Freepik.com</string>
+    <string name="images_credit">Images from https://pixabay.com/</string>
+
+    <!-- Fragment builder (cocktails) -->
+    <string name="name">Name</string>
+    <string name="ingredients_owned">Ingredients Owned (Ingredients Needed)</string>
+    <string name="no_ingredients_added">No ingredients added! Try clicking some on the previous tab.</string>
+
+    <!-- Fragment builder (ingredients) -->
+    <string name="search_ingredients">Search for an ingredient...</string>
+    <string name="my_ingredients">My Ingredients</string>
+    <string name="no_ingredients_added_label">No Ingredients added! Try clicking on some above!</string>
+
+    <!-- Fragment cocktail detail -->
+    <string name="detail_name_placeholder">Almo Splash</string>
+    <string name="detail_type_placeholder">Alcoholic - Ordinary Drink</string>
+    <string name="detail_method_label">Method:</string>
+    <string name="detail_method_placeholder">Mix with cracked ice and strain into collins glass.</string>
+    <string name="detail_ingredients_label">Ingredients:</string>
+    <string name="detail_text_dash">-</string>
+
+    <!-- Fragment main -->
+    <string name="main_sort_by">Sort By:</string>
+
+    <!-- Navigation drawer list item -->
+    <string name="nav_drawer_title">Drawer title</string>
+
+    <!-- Fragment save -->
+    <string name="no_cocktails_saved">No cocktails saved!</string>
+
+    <!-- Fragment surprise -->
+    <string name="surprise_button_label">Surprise Me!</string>
+
+    <!-- Splash activity -->
+    <string name="perform_setup_label">Performing inital setup...</string>
+
+    <!-- Save list view item -->
+    <string name="cocktail_name_label">Cocktail Name</string>
+
+    <!-- Types of glasses -->
+    <string name="glass_highball">Highball glass</string>
+    <string name="glass_cocktail">Cocktail glass</string>
+    <string name="glass_old_fashioned">Old-fashioned glass</string>
+    <string name="glass_pousse_cafe">Pousse cafe glass</string>
+    <string name="glass_red_wine">Red wine glass</string>
+    <string name="glass_whiskey_sour">Whiskey sour glass</string>
+    <string name="glass_champagne_flute">Champagne flute</string>
+    <string name="glass_cordial">Cordial glass</string>
+    <string name="glass_irish_coffee_cup">Irish coffee cup</string>
+    <string name="glass_white_wine">White wine glass</string>
+    <string name="glass_brandy_snifter">Brandy snifter</string>
+    <string name="glass_parfait">Parfait glass</string>
+    <string name="glass_margarita_coupette">Margarita\/Coupette glass</string>
+    <string name="glass_shot_glass">Shot glass</string>
+    <string name="glass_coffee_mug">Coffee mug</string>
+    <string name="glass_punch_bowl">Punch bowl</string>
+    <string name="glass_hurricane">Hurricane glass</string>
+    <string name="glass_pitcher">Pitcher</string>
+    <string name="glass_mason_jar">Mason jar</string>
+    <string name="glass_beer_mug">Beer mug</string>
+    <string name="glass_beer_pilsner">Beer pilsner</string>
+    <string name="glass_sherry">Sherry glass</string>
+    <string name="title_activity_save">SaveActivity</string>
+
+</resources>

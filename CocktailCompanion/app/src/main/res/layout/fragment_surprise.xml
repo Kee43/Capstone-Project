@@ -1,0 +1,28 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.kieranflay.cocktailcompanion.surprise.SurpriseActivityFragment">
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/imageView2"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/cocktail_2"
+        android:tint="@color/surprise_image_tint" />
+
+    <Button
+        android:layout_width="@dimen/surprise_button_width"
+        android:layout_height="@dimen/surprise_button_height"
+        android:text="@string/surprise_button_label"
+        android:id="@+id/btnSurpriseMe"
+        android:textSize="@dimen/surprise_button_text_size"
+        android:textColor="@color/white"
+        android:background="@color/light_blue"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/surprise_button_margin_top" />
+
+</RelativeLayout>

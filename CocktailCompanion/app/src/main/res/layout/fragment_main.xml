@@ -1,0 +1,56 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.kieranflay.cocktailcompanion.browse.MainActivity.CocktailBrowseFragment"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/main_header_layout_heght"
+        android:background="@color/grey_header">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:id="@+id/tvTotalCocktails"
+            android:layout_weight="1"
+            android:background="@color/grey_header"
+            android:gravity="center"
+            android:textIsSelectable="false"
+            android:textSize="@dimen/main_header_text_size" />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:text="@string/main_sort_by"
+            android:id="@+id/textView4"
+            android:layout_weight="1"
+            android:background="@color/grey_header"
+            android:gravity="center_vertical|right"
+            android:layout_marginRight="@dimen/main_header_layout_margin_right"
+            android:textSize="@dimen/main_header_text_size" />
+
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:id="@+id/sortSpinner"
+            android:layout_weight="1"
+            android:background="@color/grey_header"
+            android:textSize="@dimen/main_header_text_size"
+            />
+
+    </LinearLayout>
+
+    <GridView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/gvBrowseCocktails"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:numColumns="auto_fit"
+        android:stretchMode="columnWidth"
+        android:gravity="center"
+        android:horizontalSpacing="@dimen/main_grid_horizontal_spacing"
+        android:verticalSpacing="@dimen/main_grid_vertical_spacing"
+        android:layout_margin="@dimen/main_grid_margin" />
+
+</LinearLayout>

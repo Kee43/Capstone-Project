@@ -1,0 +1,28 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/nav_drawer_item_height"
+    android:orientation="horizontal">
+
+    <ImageView
+        android:id="@+id/ivDrawerIcon"
+        android:layout_width="@dimen/nav_drawer_item_icon_width"
+        android:layout_height="@dimen/nav_drawer_item_icon_height"
+        android:src="@drawable/ic_cocktail_shifter_grey"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="@dimen/nav_drawer_item_margin_left" />
+
+    <TextView
+        android:id="@+id/tvDrawerName"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1.5"
+        android:gravity="left|center_vertical"
+        android:text="@string/nav_drawer_title"
+        android:textColor="@color/nav_grey"
+        android:textSize="@dimen/nav_drawer_item_text_size"
+        android:layout_marginLeft="@dimen/nav_drawer_item_margin_left"
+        android:layout_marginTop="@dimen/nav_drawer_item_text_margin_top"
+        android:layout_marginRight="@dimen/nav_drawer_item_text_margin_right"
+        android:layout_marginBottom="@dimen/nav_drawer_item_text_margin_bottom" />
+
+</LinearLayout>

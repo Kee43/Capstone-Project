@@ -1,0 +1,57 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" tools:context="com.kieranflay.cocktailcompanion.builder.BuilderActivityIngredientsFragment"
+    android:orientation="vertical">
+
+    <SearchView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/svSearch"
+        android:iconifiedByDefault="false"
+        android:queryHint="@string/search_ingredients"
+        android:background="@color/grey_header"
+        android:touchscreenBlocksFocus="true"
+        android:voiceSearchMode="showVoiceSearchButton|launchRecognizer"/>
+
+    <ListView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/lvIngredients"
+        android:layout_weight="1"
+        android:touchscreenBlocksFocus="true" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/light_blue">
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/my_ingredients"
+            android:id="@+id/textView5"
+            android:textSize="@dimen/builder_ingredients_label_textsize"
+            android:layout_marginTop="@dimen/builder_ingredients_top_margin"
+            android:layout_marginLeft="@dimen/builder_ingredients_left_margin"
+            android:layout_marginBottom="@dimen/builder_ingredients_bottom_margin"
+            android:textColor="@android:color/white" />
+    </LinearLayout>
+
+    <ListView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/lvUserIngredients"
+        android:layout_weight="1" />
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:text="@string/no_ingredients_added_label"
+        android:id="@+id/tvIngredientsNoDataView"
+        android:gravity="center"
+        android:layout_gravity="center_horizontal"
+        android:textSize="@dimen/builder_ingredients_no_data_text_size"
+        android:visibility="gone"
+        android:layout_weight="1" />
+</LinearLayout>
