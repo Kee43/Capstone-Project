@@ -14,10 +14,10 @@ with your friends and family!
 
 
 # Features
-* Browse through a list of over 1000 cocktails, 80+ have custom images
+* Browse through a list of over 100 cocktails, 80+ have custom images
 * Sort/Search through the list based on alcoholic/non-alcoholic drinks
 * Save favourite cocktails
-* Discover what you can make from your own ingredients
+* Discover what you can make from your own ingredients and compare with a list of over 1000 cocktails
 * App will pick a random cocktail for the user
 
 # Screenshots
