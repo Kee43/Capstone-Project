@@ -221,6 +221,7 @@ public class MainActivity extends AppCompatActivity
         public void setUpSpinner() {
             final Spinner spinner = (Spinner) rootView.findViewById(R.id.sortSpinner);
             List<String> list = new ArrayList<String>();
+            list.add("None");
             list.add("Alcoholic");
             list.add("Non-Alcoholic");
 
@@ -235,9 +236,11 @@ public class MainActivity extends AppCompatActivity
                     Log.d(LOG_TAG, "Spinner value selected: " + position);
                     if (Utilities.isNetworkAvailable(getActivity())) {
                         if (position == 0) {
+                            // do nothing
+                        } else if (position == 1){
                             spinnerValue = true;
                             new LoadCocktails().execute(spinnerValue);
-                        } else {
+                        } else if (position == 2) {
                             spinnerValue = false;
                             new LoadCocktails().execute(spinnerValue);
                         }
@@ -276,6 +279,9 @@ public class MainActivity extends AppCompatActivity
             @Override
             protected void onPostExecute(ArrayList<Drink> drinksList) {
 
+                dialog.dismiss();
+                dialog.hide();
+
                 final ArrayList<String> cocktailIds = new ArrayList<String>();
                 final ArrayList<String> cocktailNames = new ArrayList<String>();
                 final ArrayList<String> cocktailImages = new ArrayList<String>();
@@ -291,7 +297,7 @@ public class MainActivity extends AppCompatActivity
                             cocktailNames.add(drink.getStrDrink());
                             cocktailImages.add(drink.getStrDrinkThumb());
 
-                            Log.d(LOG_TAG, "Loading cocktail: " + drink.getStrDrink());                        }
+                        }
                     }
                     tvTotal.setText("Total cocktails: " + cocktailIds.size());
                 }
@@ -300,7 +306,7 @@ public class MainActivity extends AppCompatActivity
                         GridViewAdapter(getActivity(), cocktailNames, cocktailImages);
                 gridViewCocktails = (GridView) rootView.findViewById(R.id.gvBrowseCocktails);
                 gridViewCocktails.setAdapter(gridViewAdapter);
-                dialog.hide();
+
 
                 gridViewCocktails.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override

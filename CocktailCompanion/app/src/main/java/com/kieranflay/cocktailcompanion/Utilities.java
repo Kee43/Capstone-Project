@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Created by Kieran on 03/10/2015.
@@ -25,22 +26,16 @@ public class Utilities {
 
         ArrayList<String> drinkListId = new ArrayList<>();
         ArrayList<Drink> drinkList = new ArrayList<>();
-        Set<String> filteredDrinkList = new HashSet<String>();
 
         TinyDB tinydb = new TinyDB(aContext);
         drinkListId = tinydb.getListString("local_db");
 
         String url = "http://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=";
 
-        // Removing duplicates from the list
-        filteredDrinkList.clear();
-        filteredDrinkList.addAll(drinkListId);
-
-        for (String cocktailId : filteredDrinkList) {
+        for (String cocktailId : drinkListId) {
             if (cocktailId == "" || cocktailId == null){
             } else {
-                Drink drink = (JsonHandler.getJSONFromUrl(url + cocktailId)).get(0);
-                drinkList.add(drink);
+                drinkList.add(JsonHandler.getJSONFromUrl(url + cocktailId).get(0));
             }
         }
         Log.d(LOG_TAG, "Loading in " + drinkList.size() + " cocktails.");
@@ -67,6 +62,8 @@ public class Utilities {
         ArrayList<Drink> dbList = new ArrayList<Drink>();
         ArrayList<String> tempDrinkIdList = new ArrayList<>();
         ArrayList<String> urlList = getUrlArray();
+        Set<String> filteredDrinkList = new HashSet<String>();
+
         TinyDB tinydb = new TinyDB(aContext);
 
         for (String url : urlList) {
@@ -81,10 +78,13 @@ public class Utilities {
             }
         }
 
+        // We need to remove duplicates
+        filteredDrinkList.clear();
         for (Drink dbDrink : dbList) {
-            // We cannot save drinks as an object so we save the list of IDs
-            tempDrinkIdList.add(dbDrink.getIdDrink());
+            // Removing duplicates from the list
+            filteredDrinkList.add(dbDrink.getIdDrink());
         }
+        tempDrinkIdList.addAll(filteredDrinkList);
 
         if (tempDrinkIdList.size() == 0) {
             Log.v(LOG_TAG, "Drink list size is 0.");
@@ -98,31 +98,47 @@ public class Utilities {
 
     public static ArrayList<Drink> loadAlcoholicCocktails(Context aContext) {
 
+        long start = System.currentTimeMillis();
         ArrayList<Drink> drinkList = new ArrayList<>();
         ArrayList<Drink> dbDrinks = loadDatabase(aContext);
 
         for (Drink drink : dbDrinks) {
             if (drink.getStrAlcoholic().equals("Alcoholic")) {
-                Log.d(LOG_TAG, "Alcoholic cocktail: " + drink.getStrAlcoholic());
                 // Ensure that no duplicates are added
                 drinkList.add(drink);
             }
         }
+        long end = System.currentTimeMillis();
+        long total = (end-start);
+        String timeTaken = String.format("%d min, %d sec",
+                TimeUnit.MILLISECONDS.toMinutes(total),
+                TimeUnit.MILLISECONDS.toSeconds(total) -
+                        TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(total))
+        );
+        Log.v(LOG_TAG, "Time to load alcoholic cocktails: " + timeTaken);
         return drinkList;
     }
 
     public static ArrayList<Drink> loadNonAlcoholicCocktails(Context aContext) {
 
+         long start = System.currentTimeMillis();
         ArrayList<Drink> drinkList = new ArrayList<>();
         ArrayList<Drink> dbDrinks = loadDatabase(aContext);
 
         for (Drink drink : dbDrinks) {
             if (drink.getStrAlcoholic().equals("Non alcoholic")) {
-                Log.d(LOG_TAG, "Non alcoholic cocktail: " + drink.getStrAlcoholic());
                 // Ensure that no duplicates are added
                 drinkList.add(drink);
             }
         }
+        long end = System.currentTimeMillis();
+        long total = (end-start);
+        String timeTaken = String.format("%d min, %d sec",
+                TimeUnit.MILLISECONDS.toMinutes(total),
+                TimeUnit.MILLISECONDS.toSeconds(total) -
+                        TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(total))
+        );
+        Log.v(LOG_TAG, "Time to load non-alcoholic cocktails: " + timeTaken);
         return drinkList;
     }
 
