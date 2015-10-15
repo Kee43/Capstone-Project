@@ -2,10 +2,13 @@ package com.kieranflay.cocktailcompanion;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.util.Log;
+
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -22,32 +25,38 @@ public class Utilities {
     public static ArrayList<String> alIngredients = new ArrayList<String>();
     public static String LOG_TAG = Utilities.class.getSimpleName();
 
+    static SharedPreferences sharedpreferences;
+    static SharedPreferences.Editor prefsEditor;
+
     public static ArrayList<Drink> loadDatabase(Context aContext) {
 
-        ArrayList<String> drinkListId = new ArrayList<>();
         ArrayList<Drink> drinkList = new ArrayList<>();
 
-        TinyDB tinydb = new TinyDB(aContext);
-        drinkListId = tinydb.getListString("local_db");
+        sharedpreferences =  aContext.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+        Gson gson = new Gson();
+        int sharedPrefsSize = sharedpreferences.getInt("listSize", 0);
 
-        String url = "http://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=";
-
-        for (String cocktailId : drinkListId) {
-            if (cocktailId == "" || cocktailId == null){
-            } else {
-                drinkList.add(JsonHandler.getJSONFromUrl(url + cocktailId).get(0));
-            }
+        for (int i = 0; i < sharedPrefsSize; i++){
+            String index = String.valueOf(i);
+            String json = sharedpreferences.getString(index, "");
+            Drink drink = gson.fromJson(json, Drink.class);
+            drinkList.add(drink);
         }
+
         Log.d(LOG_TAG, "Loading in " + drinkList.size() + " cocktails.");
         return drinkList;
     }
 
     public static boolean checkDatabase(Context aContext) {
-        ArrayList<String> drinkList = new ArrayList<>();
-        TinyDB tinydb = new TinyDB(aContext);
-        drinkList = tinydb.getListString("local_db");
 
-        if (drinkList.size() == 0) {
+        // Check the shared preferences for the first value to see if the initial setup has already been
+        // completed (when the app is installed)
+        sharedpreferences =  aContext.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+        Gson gson = new Gson();
+        String json = sharedpreferences.getString("0", "");
+        Drink drink = gson.fromJson(json, Drink.class);
+
+        if (drink == null) {
             Log.v(LOG_TAG, "Database is empty, performing initial setup.");
             return false;
         } else {
@@ -57,15 +66,14 @@ public class Utilities {
     }
 
     public static boolean saveDatabase(Context aContext) {
-
         ArrayList<Drink> tempList = new ArrayList<Drink>();
-        ArrayList<Drink> dbList = new ArrayList<Drink>();
-        ArrayList<String> tempDrinkIdList = new ArrayList<>();
-        ArrayList<String> urlList = getUrlArray();
+        ArrayList<Drink> unfilteredList = new ArrayList<Drink>();
         Set<String> filteredDrinkList = new HashSet<String>();
 
-        TinyDB tinydb = new TinyDB(aContext);
+        ArrayList<Drink> tempDrinkIdList = new ArrayList<>();
+        ArrayList<String> urlList = getUrlArray();
 
+        // DOWNLOAD
         for (String url : urlList) {
             tempList.clear();
             tempList = JsonHandler.getJSONFromUrl(url);
@@ -73,24 +81,41 @@ public class Utilities {
                 if (tempDrink.getStrDrinkThumb() == null || tempDrink.getStrDrinkThumb() == "") {
                     // No image
                 } else {
-                    dbList.add(tempDrink);
+                    unfilteredList.add(tempDrink);
                 }
             }
         }
 
-        // We need to remove duplicates
+        // FILTER (Drink objects seem to still repeat in a set so we use IDs)
         filteredDrinkList.clear();
-        for (Drink dbDrink : dbList) {
-            // Removing duplicates from the list
-            filteredDrinkList.add(dbDrink.getIdDrink());
+        for (Drink Drink : unfilteredList) {
+            filteredDrinkList.add(Drink.getIdDrink());
         }
-        tempDrinkIdList.addAll(filteredDrinkList);
+
+        String url = "http://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=";
+        for (String drinkURL : filteredDrinkList) {
+            tempDrinkIdList.add(JsonHandler.getJSONFromUrl(url + drinkURL).get(0));
+        }
+
+        // STORE
+        sharedpreferences =  aContext.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+        prefsEditor = sharedpreferences.edit();
+        prefsEditor.putInt("listSize", tempDrinkIdList.size());
+
+        for (int i = 0; i < tempDrinkIdList.size(); i++){
+            Drink drink = tempDrinkIdList.get(i);
+            String index = Integer.toString(i);
+
+            Gson gson = new Gson();
+            String json = gson.toJson(drink);
+            prefsEditor.putString(index, json);
+            prefsEditor.commit();
+        }
 
         if (tempDrinkIdList.size() == 0) {
             Log.v(LOG_TAG, "Drink list size is 0.");
             return false;
         } else {
-            tinydb.putListString("local_db", tempDrinkIdList);
             Log.d(LOG_TAG, "Successfully added: " + Integer.toString(tempDrinkIdList.size()) + " entries to the local db.");
             return true;
         }
@@ -116,6 +141,27 @@ public class Utilities {
                         TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(total))
         );
         Log.v(LOG_TAG, "Time to load alcoholic cocktails: " + timeTaken);
+        return drinkList;
+    }
+
+    public static ArrayList<Drink> loadAllCocktails(Context aContext) {
+
+        long start = System.currentTimeMillis();
+        ArrayList<Drink> drinkList = new ArrayList<>();
+        ArrayList<Drink> dbDrinks = loadDatabase(aContext);
+
+        for (Drink drink : dbDrinks) {
+                drinkList.add(drink);
+        }
+
+        long end = System.currentTimeMillis();
+        long total = (end-start);
+        String timeTaken = String.format("%d min, %d sec",
+                TimeUnit.MILLISECONDS.toMinutes(total),
+                TimeUnit.MILLISECONDS.toSeconds(total) -
+                        TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(total))
+        );
+        Log.v(LOG_TAG, "Time to load all cocktails: " + timeTaken);
         return drinkList;
     }
 

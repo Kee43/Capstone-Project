@@ -18,6 +18,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.support.v4.widget.DrawerLayout;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -73,6 +75,10 @@ public class MainActivity extends AppCompatActivity
         // Color the action bar
         ActionBar bar = getSupportActionBar();
         bar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.light_blue)));
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+        getWindow().clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        getWindow().setStatusBarColor(getResources().getColor(R.color.theme_primary_dark));
+
     }
 
     @Override
@@ -181,7 +187,7 @@ public class MainActivity extends AppCompatActivity
         GridView gridViewCocktails;
         TextView tvTotal;
 
-        public boolean spinnerValue = true;
+        public int spinnerValue;
 
         /**
          * Returns a new instance of this fragment for the given section
@@ -207,7 +213,6 @@ public class MainActivity extends AppCompatActivity
             setUpSpinner();
             setUpGridView();
 
-            new LoadCocktails().execute(true);
             return rootView;
         }
 
@@ -225,6 +230,7 @@ public class MainActivity extends AppCompatActivity
             list.add("Alcoholic");
             list.add("Non-Alcoholic");
 
+
             ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(getActivity(),
                     android.R.layout.simple_spinner_item, list);
             dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -236,12 +242,13 @@ public class MainActivity extends AppCompatActivity
                     Log.d(LOG_TAG, "Spinner value selected: " + position);
                     if (Utilities.isNetworkAvailable(getActivity())) {
                         if (position == 0) {
-                            // do nothing
-                        } else if (position == 1){
-                            spinnerValue = true;
+                            spinnerValue = 0;
+                            new LoadCocktails().execute(spinnerValue);
+                        } else if (position == 1) {
+                            spinnerValue = 1;
                             new LoadCocktails().execute(spinnerValue);
                         } else if (position == 2) {
-                            spinnerValue = false;
+                            spinnerValue = 2;
                             new LoadCocktails().execute(spinnerValue);
                         }
                     } else {
@@ -261,15 +268,17 @@ public class MainActivity extends AppCompatActivity
         }
 
 
-        private class LoadCocktails extends AsyncTask<Boolean, Integer, ArrayList<Drink>> {
+        private class LoadCocktails extends AsyncTask<Integer, Integer, ArrayList<Drink>> {
 
             ProgressDialog dialog =
                     new ProgressDialog(getActivity());
 
             @Override
-            protected ArrayList<Drink> doInBackground(Boolean... params) {
+            protected ArrayList<Drink> doInBackground(Integer... params) {
 
-                if (params[0] == true) {
+                if (params[0] == 0) {
+                    return Utilities.loadAllCocktails(getActivity());
+                } else if (params[0] == 1){
                     return Utilities.loadAlcoholicCocktails(getActivity());
                 } else {
                     return Utilities.loadNonAlcoholicCocktails(getActivity());

@@ -24,16 +24,17 @@
         </activity>
         <activity
             android:name=".browse.MainActivity"
-            android:label="@string/title_activity_main" >
+            android:label="@string/title_activity_main">
         </activity>
         <activity
             android:name=".detail.DetailActivity"
-            android:label=""
+            android:label="@string/title_activity_cocktail_detail"
             android:theme="@style/Theme.CocktailDetail" >
         </activity>
         <activity
             android:name=".about.AboutActivity"
-            android:label="@string/title_activity_about" >
+            android:label="@string/title_activity_about"
+            android:theme="@style/Theme.CocktailDetail">
         </activity>
         <activity
             android:name=".surprise.SurpriseActivity"
